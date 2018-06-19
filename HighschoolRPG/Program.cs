@@ -4,9 +4,14 @@ namespace HighschoolRPG
 {
     class Program
     {
-        static void Main(string[] args)
+
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+
+            Student newStudent = new Student();
+            newStudent.functionOne();
+            Console.WriteLine("BLAH");
+
         }
     }
 }
