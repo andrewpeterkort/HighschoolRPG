@@ -7,8 +7,7 @@ namespace HighschoolRPG
         public int Wits;
         public int Smarts;
         public int Style;
-    }
-
+    } 
     public struct Attack
     {
         public int damage;
@@ -55,7 +54,7 @@ namespace HighschoolRPG
             return newAt;
         }
 
-        public void defend(Attack input)
+        public bool defend(Attack input)
         {
             int count = 0;
             int current = 0;
@@ -76,6 +75,7 @@ namespace HighschoolRPG
             damage = (damage > 0) ? damage : 0;
             Hp -= damage;
             Console.WriteLine("{0} toke {1} points of damage and is now at {2} HP", Name, damage, Hp);
+            return (Hp <= 0) ? true : false;
 
         }
 
