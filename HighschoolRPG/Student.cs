@@ -26,7 +26,7 @@ namespace HighschoolRPG
             return allStats.Looks + allStats.Wits + allStats.Smarts + allStats.Style + Losses;
         }
 
-        public Attack attack()
+        public virtual Attack attack()
         {
             int current;
             int countHigh = 0;
@@ -48,9 +48,6 @@ namespace HighschoolRPG
 
             newAt.damage = high;
             newAt.stat = countHigh;
-            Console.WriteLine("NEW ATTACK");
-            Console.WriteLine("HIGHEST NUM: {0}", high);
-            Console.WriteLine("NUM POSITION: {0}", countHigh);
             return newAt;
         }
 
@@ -90,4 +87,26 @@ namespace HighschoolRPG
             this.Losses = 0;
         }
     }
+
+    public class Player : Student
+    {
+
+        public Player( string name, int looks, int wits, int smarts, int style ) : base( name, looks, wits, smarts, style)
+        {
+
+
+        }
+
+        public override Attack attack()
+        {
+            Attack newAt;
+            newAt.damage = 5;
+            newAt.stat = 2;
+            Console.WriteLine("INHARITANCE IS WORKING");
+
+            return newAt;
+        }
+
+    }
+
 }

@@ -9,7 +9,7 @@ namespace HighschoolRPG
             bool sOneFaint = false, sTwoFaint = false;
             Random rnd = new Random();
             Student newStudentOne = new Student( "AI_One", rnd.Next(0, 10), rnd.Next(0, 10), rnd.Next(0, 10), rnd.Next(0, 10));
-            Student newStudentTwo = new Student("AI_Two", rnd.Next(0, 10), rnd.Next(0, 10), rnd.Next(0, 10), rnd.Next(0, 10));
+            Player newStudentTwo = new Player("PLAYER", rnd.Next(0, 10), rnd.Next(0, 10), rnd.Next(0, 10), rnd.Next(0, 10));
 
             while( !sOneFaint && !sTwoFaint )
             {
@@ -17,10 +17,10 @@ namespace HighschoolRPG
                 sOneFaint = newStudentOne.defend(newStudentTwo.attack());
             }
 
-            if(sTwoFaint == true)
+            if (sTwoFaint == true)
             {
-                Console.WriteLine("STUDENT TWO FAINTED");
-            }
+                Console.WriteLine("Player FAINTED");
+            }            
 
             if(sOneFaint == true)
             {
