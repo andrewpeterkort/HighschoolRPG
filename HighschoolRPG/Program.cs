@@ -24,7 +24,7 @@ namespace HighschoolRPG
 
             if(sOneFaint == true)
             {
-                Console.WriteLine("STUDENT ONE FAINTED");
+                Console.WriteLine("AI FAINTED");
             }
         }
     }

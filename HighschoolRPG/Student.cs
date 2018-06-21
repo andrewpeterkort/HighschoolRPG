@@ -93,20 +93,36 @@ namespace HighschoolRPG
 
         public Player( string name, int looks, int wits, int smarts, int style ) : base( name, looks, wits, smarts, style)
         {
-
-
         }
 
         public override Attack attack()
         {
             Attack newAt;
-            newAt.damage = 5;
-            newAt.stat = 2;
-            Console.WriteLine("INHARITANCE IS WORKING");
+            newAt.damage = 0;
+            newAt.stat = 0;
+            string answer;
+            int numAnswer = 0;
+            int count = 0;
+            int current = 0;
+            Console.WriteLine("PICK YOUR ATTACK");
+            Console.WriteLine("1. LOOKS: {0}\n2. WITS: {1}\n3. SMARTS: {2}\n4. STYLE: {3}", allStats.Looks, allStats.Wits, allStats.Smarts, allStats.Style);
+            answer = Console.ReadLine();
+            numAnswer = Convert.ToInt32(answer);
+
+
+            foreach (var stat in typeof(Stats).GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance))
+            {
+                count++;
+                current = Convert.ToInt32(stat.GetValue(allStats));
+                if (count == numAnswer)
+                {
+                    newAt.damage = current;
+                    newAt.stat = count;
+                }
+            }
 
             return newAt;
         }
-
     }
 
 }
